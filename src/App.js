@@ -58,7 +58,7 @@ class CustomerApp extends Component {
               <table border="1">
                 <thead>
                   <tr>
-                    <th>Name</th>
+                    <th>Name Imran</th>
                     <th># of Employees</th>
                     <th>Size</th>
                   </tr>

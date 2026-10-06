@@ -44,7 +44,7 @@ class CustomerApp extends Component {
       <div>
         { !this.state.name &&
           <div>
-            <p>Please provide your name:</p>
+            <p>Please provide your Imran S:</p>
             <input type="text" id="name" data-testid="name" />
             <input type="button" value="Submit" data-testid="submit-btn" onClick={this.getCustomers.bind(this)}/>
           </div>
@@ -58,7 +58,7 @@ class CustomerApp extends Component {
               <table border="1">
                 <thead>
                   <tr>
-                    <th>Name Imran</th>
+                    <th>Name</th>
                     <th># of Employees</th>
                     <th>Size</th>
                   </tr>

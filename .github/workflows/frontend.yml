@@ -28,9 +28,12 @@ jobs:
 
       - name: Build frontend
         run: npm run build
+        env:
+          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
 
   deploy:
     needs: build
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:
@@ -42,8 +45,13 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             export PATH="/home/ubuntu/.nvm/versions/node/v24.21.0/bin:$PATH"
+
             cd ~/FE
+
             git pull origin main
+
             npm ci
-            npm run build
+
+            REACT_APP_API_URL="${{ secrets.REACT_APP_API_URL }}" npm run build
+
             pm2 restart all
